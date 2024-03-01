@@ -1,0 +1,8 @@
+package.json
+dist
+node_modules
+.idea
+README.md
+.gitignore
+*.png
+*.svg

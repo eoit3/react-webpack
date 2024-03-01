@@ -1,0 +1,8 @@
+{
+  // ...
+  "editor.codeActionsOnSave": {
+    "source.fixAll.stylelint": true
+  },
+   
+  "stylelint.validate": ["css", "less", "sass", "stylus", "postcss"]
+}

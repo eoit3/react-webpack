@@ -1,0 +1,6 @@
+.eslintrc.js  
+node_modules  
+dist  
+.idea  
+README.md  
+.gitignore
