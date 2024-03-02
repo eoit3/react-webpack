@@ -10,9 +10,9 @@ import styles from './index.module.less'
 
 const { Content, Header, Footer } = Layout
 interface PanesItem {
-  title:  string
-  content: ReactNode  | null
-  key:  string
+  title: string
+  content: ReactNode | null
+  key: string
   closable: boolean
   path: string
   i18nKey: string
@@ -45,7 +45,7 @@ const ProContent = () => {
       key: tabKey ? tabKey : '',
       closable: tabKey !== '/',
       path: newPath,
-      i18nKey: i18nKey ? i18nKey : '',
+      i18nKey: i18nKey ? i18nKey : ''
     })
     setTabActiveKey(tabKey ? tabKey : '')
     // eslint-disable-next-line react-hooks/exhaustive-deps
