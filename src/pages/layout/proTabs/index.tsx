@@ -41,13 +41,14 @@ const ProTabs = (props: ProTabsProps) => {
 
   const renderTabBar: TabsProps['renderTabBar'] = (_props, DefaultTabBar) => (
     <Sticky topOffset={40} relative>
-        {({style}:{style:any }) =>  <DefaultTabBar
-        key={nanoid()}
-        {..._props}
-        className='pro-tabs'
-        style={{ ...style, background: colorBgContainer,}}
-      /> }
-
+      {({ style }: { style: any }) => (
+        <DefaultTabBar
+          key={nanoid()}
+          {..._props}
+          className='pro-tabs'
+          style={{ ...style, background: colorBgContainer }}
+        />
+      )}
     </Sticky>
   )
 

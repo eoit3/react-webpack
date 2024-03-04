@@ -37,7 +37,7 @@ const ProBreadcrumb = () => {
     }
   }, [pathname])
 
-  const linkTo = (path:string) => {
+  const linkTo = (path: string) => {
     navigate(path)
   }
 

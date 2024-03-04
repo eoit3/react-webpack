@@ -17,6 +17,9 @@
     "lint:js": "eslint --ext .js,.jsx,.ts,.tsx ./src",
     "lint:prettier": "prettier -c --write \"src/**/*\"",
     "lint:style": "stylelint \"**/*.css\"",
+    "prettier:fix": "prettier --write \"src/**/*\" --end-of-line auto --ignore-unknown",
+    "eslint": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
+    "eslint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./src",
     "prepare": "husky install",
     "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
     "release": "standard-version",
@@ -42,6 +45,8 @@
     "@babel/preset-env": "^7.23.9",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
+    "@commitlint/cli": "^19.0.3",
+    "@commitlint/config-conventional": "^19.0.3",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
     "@sentry/webpack-plugin": "^2.14.1",
     "@types/qrcode": "^1.5.5",
@@ -73,6 +78,7 @@
     "husky": "^8.0.0",
     "less": "^4.2.0",
     "less-loader": "^12.2.0",
+    "lint-staged": "^15.2.2",
     "mini-css-extract-plugin": "^2.8.0",
     "postcss-loader": "^8.1.0",
     "prettier": "^3.2.5",
@@ -133,10 +139,19 @@
   },
   "husky": {
     "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
       "pre-commit": "lint-staged",
       "post-merge": "install-changed",
       "post-commit": "exec < /dev/tty && node webpack/check-version.js"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{js, jsx, ts, tsx}": [
+      "npm run eslint:fix"
+    ],
+    "**/*": [
+      "npm run prettier:fix"
+    ]
   },
   "config": {
     "commitizen": {
